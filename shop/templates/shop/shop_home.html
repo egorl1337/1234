@@ -1,0 +1,28 @@
+{% extends 'e/layout.html'%}
+{% block title%}Интернет-магазин: {{name}}{% endblock %}
+{% block body%}
+
+
+{% if items_dict %}
+{% for el in items_dict %}
+<div class = 'item'>
+<a href = {% url 'detail_view' el.id%} class = 'item_card'>
+<div class="alert alert-warning">
+    <img src = '{{el.image.url}}' alt="1213" class = 'item_image'>
+    <p class="short_description">{{el.short_description}}</p>
+    <p>{{el.price}}</p>
+    
+</div>
+</a>
+</div>
+{%endfor%}
+
+{% else %}
+<div class="alert alert-info" role="alert">
+<p>Нет товаров</p>
+</div>
+{%endif%}
+
+
+
+{% endblock %}

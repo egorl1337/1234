@@ -1,0 +1,160 @@
+
+
+aside img{
+    width: 75px;
+    height: 75px;
+    float: left;
+    border-radius: 10px;
+    display: block;
+
+}
+
+
+aside{
+    background-color: bisque;
+    float: left;
+    height: 78vh;
+    border-radius: 20px;
+    box-shadow: 0 0 10px black;
+    width: 250px;
+}
+
+header{
+    margin-top: 5px;
+    background-color: bisque;
+    height: 15vh;
+    border-radius: 20px;
+    box-shadow: 0 0 10px black
+
+}
+
+.about{
+    display: inline-block;
+    text-decoration: none;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    position: relative;
+    left: 140vh;
+    top: 5vh
+
+
+    
+    
+}
+
+.order{
+    display: inline-block; 
+    text-decoration: none;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    position: relative;
+    left: 170vh;
+    top: 5vh
+}
+
+span:hover, a:hover{
+    transform: scale(1.05);
+    transition: all 450ms ease 
+}
+
+aside{
+    margin-top: 20px;
+}
+
+aside ul{
+    text-decoration: none;
+    margin-top: 80px;
+}
+
+aside ul a{
+    display: block;
+    text-align: left;
+    text-decoration: none;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+aside ul li{
+    list-style: none;
+}
+
+aside ul li:hover, aside ul a:hover{
+    transform: scale(1.05);
+    transition: all 450ms ease 
+}
+
+aside li{
+    color:dimgray;
+    text-decoration: none;
+
+}
+
+
+main h2{
+    font-size: 50px;
+    max-height: 100px;
+
+}
+
+main p{
+    max-width: 200px;
+    margin: 20px;
+}
+
+.comment_card{
+    display: block;
+    width: 100%;
+    float: left;
+    text-align: left;
+    margin: 20px 5%;
+    border-radius: 20px;
+    font-size: 14px;
+
+
+
+
+}
+
+main{
+    padding: 20px 20%;
+}
+
+
+
+.comment_form{
+    margin-bottom: 5px;
+}
+
+
+
+
+
+.item a{
+    text-decoration: none;
+}
+
+.item:hover{
+    transform: scale(1.02);
+    transition: all 450ms ease 
+}
+
+
+.item{
+    width: 30%;
+}
+
+.item_image{
+    width: 50%;
+}
+
+
+.nickname, .datetime{
+    margin: 0 10px;
+    float: left;
+}
+
+.delete_button{
+    float: right;
+}
+
+.edit_button{
+    float: right;
+    margin: 0 5px;
+}
