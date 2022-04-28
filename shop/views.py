@@ -38,10 +38,11 @@ def comments(request):
     comment_dict = Comment.objects.order_by('-comment_date')[:2]
        
     error = ''
-    if request.method == "POST":
-        form = CommentForm(request.POST)
-        if form.is_valid():
-            form.save()
-        else:
-            error = 'форма не правильная'
+
+    form = CommentForm(request.POST)
+    if form.is_valid():
+        form.save()
+    else:
+        error = 'форма не правильная'
+        form = CommentForm()
     return render(request, 'shop\comments_home.html', {'comment_dict':comment_dict, 'form':form, 'error':error})
