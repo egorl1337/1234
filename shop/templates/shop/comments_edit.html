@@ -2,25 +2,17 @@
 {% block title%}Интернет-магазин: Комментарии{{name}}{% endblock %}
 {% block body%}
 
-<div class="features">
-    <form method="post" class = 'comment_form'>
+
+<form method="post" class = 'comment_form'>
         
-        {% csrf_token %}
-        {{form.text}}
+    {% csrf_token %}
+    {{form.text}}
 
 
-        <span>
-            {{error}}
-        </span>
-        
-        <!-- <textarea class = "form-control" placeholder="Добавить комментарий"></textarea><br>
-        <input type="text" placeholder="ник"><br>
-        <input type="text" placeholder="ид"><br>
-        <input type="datetime-local" placeholder="дата" class="form-control"> -->
-        <button type="submit" class="btn btn-dark">Отправить</button>
+    <button type="submit" class="btn btn-dark">Отправить</button>
 
-    </form>
+</form>
     
-</div>
+
 
 {% endblock%}

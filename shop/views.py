@@ -18,14 +18,16 @@ class New_detail_view(DetailView):
 class comments_delete(DeleteView):
     model = Comment
     template_name = 'shop/comments_delete.html'
-    success_url = '/shop/'
+    success_url = '/shop/comments'
     context_object_name = 'Comment'
 
 
 
 class comments_edit(UpdateView):
     model = Comment
-    template_name = 'comments_edit.html'
+    template_name = 'shop/comments_edit.html'
+    success_url = 'shop/comments'
+    form_class = CommentForm
 
 
 
@@ -45,11 +47,13 @@ def comments(request):
     comment_dict = Comment.objects.order_by('-comment_date')[:2]
        
     error = ''
-
-    form = CommentForm(request.POST)
-    if form.is_valid():
-        form.save()
+    if request.method == "POST":
+        form = CommentForm(request.POST)
+        if form.is_valid():
+            form.save()
+        else:
+            error = 'форма не правильная'
+            form = CommentForm()
     else:
-        error = 'форма не правильная'
         form = CommentForm()
     return render(request, 'shop\comments_home.html', {'comment_dict':comment_dict, 'form':form, 'error':error})

@@ -32,5 +32,7 @@ class Comment(models.Model):
     def __str__(self):
         return f"Комментарий: {self.text}, Время: {self.comment_date}, ник: {self.user_nickname}"
     
+    def get_absolute_url(self):
+        return f'/shop/comments/{self.id}'
 
 
