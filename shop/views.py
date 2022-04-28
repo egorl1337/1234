@@ -1,7 +1,8 @@
 
 from django.shortcuts import render
 from django.views.generic import DetailView
-from django.views.generic import UpdateView, DeleteView
+from django.views.generic import DeleteView
+from django.views.generic.edit import UpdateView
 from .models import Comment
 from .forms import CommentForm
 from .models import Items
@@ -26,8 +27,9 @@ class comments_delete(DeleteView):
 class comments_edit(UpdateView):
     model = Comment
     template_name = 'shop/comments_edit.html'
-    success_url = 'shop/comments'
+    success_url = '/shop/comments'
     form_class = CommentForm
+    template_name_suffix = '_update_form'
 
 
 
