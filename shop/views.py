@@ -1,10 +1,11 @@
 
 from django.shortcuts import render
 from django.views.generic import DetailView
-from django.views.generic import UpdateView
+from django.views.generic import UpdateView, DeleteView
 from .models import Comment
 from .forms import CommentForm
 from .models import Items
+
 # Create your views here.
 
 
@@ -14,11 +15,17 @@ class New_detail_view(DetailView):
     context_object_name = 'Items'
 
 
+class comments_delete(DeleteView):
+    model = Comment
+    template_name = 'shop/comments_delete.html'
+    success_url = '/shop/'
+    context_object_name = 'Comment'
+
+
 
 class comments_edit(UpdateView):
     model = Comment
     template_name = 'comments_edit.html'
-    fields = ['text', 'id']
 
 
 

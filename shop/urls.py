@@ -7,7 +7,8 @@ urlpatterns = [
     path('', views.index_shop, name = 'index_shop'),
     path('/comments/', views.comments, name = 'comments'),
     path('<int:pk>', views.New_detail_view.as_view(), name = 'detail_view'),
-    path('/comments/<int:pk>/edit', views.comments_edit.as_view(), name = 'comments_edit')   
+    path('/comments/<int:pk>/edit', views.comments_edit.as_view(), name = 'comments_edit'),   
+    path('/comments/delete<int:pk>', views.comments_delete.as_view(), name = 'comments_delete')
 ]
 
 
