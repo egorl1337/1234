@@ -28,7 +28,8 @@ class comments_edit(UpdateView):
     model = Comment
     template_name = 'shop/comments_edit.html'
     success_url = '/shop/comments'
-    form_class = CommentForm
+    #form_class = CommentForm
+    fields = ['text']
     template_name_suffix = '_update_form'
 
 

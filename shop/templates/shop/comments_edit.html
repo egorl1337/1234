@@ -3,16 +3,6 @@
 {% block body%}
 
 
-<form method="post" class = 'comment_form'>
-        
-    {% csrf_token %}
-    {{form.text}}
-
-
-    <button type="submit" value = 'Update' class="btn btn-dark">Отправить</button>
-
-</form>
-
 <form method="post">{% csrf_token %}
     {{ form.as_p }}
     <input type="submit" value="Update">
