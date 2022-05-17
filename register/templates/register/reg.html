@@ -1,0 +1,12 @@
+{% extends 'e/layout.html'%}
+{% block title%}Интернет-магазин: Регистрация{% endblock %}
+{% block body%}
+<h3>Зарегестрироваться</h3>
+<form method="post">
+    {% csrf_token %}
+    {{form.as_p}}
+    <button type="submit">Подтвердить</button>
+</form>
+
+
+{% endblock %}

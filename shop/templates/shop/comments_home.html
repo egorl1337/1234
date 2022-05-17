@@ -1,13 +1,14 @@
 {% extends 'e/layout.html'%}
 {% block title%}Интернет-магазин: Комментарии{{name}}{% endblock %}
 {% block body%}
+{% if user.is_authenticated %}
+
 
 <div class="features">
     <form method="post" class = 'comment_form'>
         
         {% csrf_token %}
         {{form.text}}
-        {{form.user_nickname}}
         {{form.user_id}}
         {{form.comment_date}}
         <span>
@@ -24,6 +25,11 @@
     
 </div>
 
+{% else %}
+        <p>You are not logged in.</p>
+        <a href="{% url 'login' %}">Log In</a>
+
+{% endif %}
 
 {% if comment_dict %}
 {% for el in comment_dict %}
