@@ -1,19 +1,30 @@
 
-from django.shortcuts import render
+from django.shortcuts import get_object_or_404, render
 from django.views.generic import DetailView
 from django.views.generic import DeleteView
 from django.views.generic.edit import UpdateView
-from .models import Comment
-from .forms import CommentForm
+from requests import request
+from .models import Comment, Comments
+from .forms import CommentForm, CommentsForm
 from .models import Items
 
 # Create your views here.
 
 
-class New_detail_view(DetailView):
-    model = Items
-    template_name = 'shop/detail_view.html'
-    context_object_name = 'Items'
+def New_detail_view(request, Items):
+    items = get_object_or_404(Items, slug=items)
+
+    comments = Items.Comments.filter(active=True)
+    comments_form = CommentsForm(data=request.POST)
+    if request.method == "POST":
+        if form.is_valid():
+            new_comment = form.save(commit=False)
+            new_comment.items = items
+            new_comment.save()
+    else:
+        form = CommentsForm()
+    return render(request, 'shop/detail_view.html', {'items':items, 'comments':comments, 'comments_form':comments_form})
+
 
 
 class comments_delete(DeleteView):

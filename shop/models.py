@@ -1,4 +1,5 @@
 from email.policy import default
+from re import M
 from django.utils.html import mark_safe
 from django.db import models
 
@@ -34,5 +35,24 @@ class Comment(models.Model):
     
     def get_absolute_url(self):
         return f'/shop/comments/{self.id}'
+
+
+class Comments(models.Model):
+    item = models.ForeignKey(Items, on_delete=models.CASCADE, related_name='Comments')
+    text = models.CharField('Текст комментария', max_length=250)
+    created = models.DateTimeField(auto_now_add=True)
+    updated = models.DateTimeField(auto_now=True)
+    active = models.BooleanField(default=True)
+
+    class Meta:
+        verbose_name = 'Комментарий'
+        verbose_name_plural = 'Комментарии'
+        ordering = ('created',)
+
+    def __str__(self):
+        return 'Comment on {}'.format(self.item)
+
+
+    
 
 
