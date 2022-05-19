@@ -1,7 +1,7 @@
-from email.policy import default
-from re import M
+
 from django.utils.html import mark_safe
 from django.db import models
+from .models import Items
 
 
 # Create your models here.
@@ -45,8 +45,8 @@ class Comments(models.Model):
     active = models.BooleanField(default=True)
 
     class Meta:
-        verbose_name = 'Комментарий'
-        verbose_name_plural = 'Комментарии'
+        verbose_name = 'Комментарий123'
+        verbose_name_plural = 'Комментарии123'
         ordering = ('created',)
 
     def __str__(self):
