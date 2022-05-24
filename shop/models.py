@@ -1,7 +1,7 @@
 
 from django.utils.html import mark_safe
 from django.db import models
-from .models import Items
+from django.contrib.auth.models import User
 
 
 # Create your models here.
@@ -39,6 +39,7 @@ class Comment(models.Model):
 
 class Comments(models.Model):
     item = models.ForeignKey(Items, on_delete=models.CASCADE, related_name='Comments')
+    user = models.ForeignKey('auth.User', on_delete=models.CASCADE, null=True)
     text = models.CharField('Текст комментария', max_length=250)
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)

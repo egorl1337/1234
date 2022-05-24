@@ -1,4 +1,5 @@
 
+
 from .models import Comment, Comments
 from django.forms import ModelForm, TextInput
 from django.contrib.auth.models import User
@@ -10,5 +11,8 @@ class CommentForm(ModelForm):
         fields = ['text', 'user_nickname', 'comment_date', 'id']
         widgets = {'text':TextInput(attrs={'class':'form-control', 'placeholder' : 'Добавить комментарий'}), 'user_nickname':TextInput(attrs={'class':'form-control', 'placeholder' : 'Имя'}), 'comment_date':TextInput(attrs={'class':'form-control', 'placeholder' : 'дата'})}
 
-
-class CommentsForm(M):
+class CommentsForm(ModelForm):
+    class Meta:
+        model = Comments
+        fields = ['text']
+        widgets = {'text':TextInput(attrs={'class':'form-control', 'placeholder' : 'Текст комментария'})}

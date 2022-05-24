@@ -12,14 +12,20 @@ from .models import Items
 
 
 def New_detail_view(request, Items):
+    class New_detail_view(DetailView):
+        model = Items
+        template_name = 'shop/detail_view.html'
+        context_object_name = 'Items'
     items = get_object_or_404(Items, slug=items)
-
     comments = Items.Comments.filter(active=True)
     comments_form = CommentsForm(data=request.POST)
+    
     if request.method == "POST":
+        
         if form.is_valid():
             new_comment = form.save(commit=False)
             new_comment.items = items
+            new_comment.author = request.user
             new_comment.save()
     else:
         form = CommentsForm()
@@ -71,3 +77,15 @@ def comments(request):
     else:
         form = CommentForm()
     return render(request, 'shop\comments_home.html', {'comment_dict':comment_dict, 'form':form, 'error':error})
+
+
+# @login_required
+# def makePost(request):
+#     form = NewsContentForm(request.POST or None)
+#     if request.method == "POST":
+#         if form.is_valid():
+#             new_post = form.save(commit=False)
+#             new_post.author = request.user
+#             new_post.save()
+#             return redirect('/news/')
+#     return render(request, 'news/makePost.html', locals())

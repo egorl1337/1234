@@ -1,7 +1,7 @@
 {% extends 'e/layout.html'%}
 {% block title%}Интернет-магазин: Комментарии{{name}}{% endblock %}
 {% block body%}
-{% if user.is_authenticated %}
+<!-- {% if user.is_authenticated %}
 
 
 <div class="features">
@@ -18,7 +18,7 @@
         <!-- <textarea class = "form-control" placeholder="Добавить комментарий"></textarea><br>
         <input type="text" placeholder="ник"><br>
         <input type="text" placeholder="ид"><br>
-        <input type="datetime-local" placeholder="дата" class="form-control"> -->
+        <input type="datetime-local" placeholder="дата" class="form-control">
         <button type="submit" class="btn btn-dark">Отправить</button>
 
     </form>
@@ -70,8 +70,21 @@
 <div class="alert alert-info" role="alert">
 <p>Нет Комментариев</p>
 </div>
-{%endif%}
+{%endif%} -->
 
+{% if comment_dict %}
+{% for el in comment_dict %} 
+
+<div class = 'comment_card'> 
+    <q class="comment_text">{{el.text}}</q>
+</div>
+{%endfor%}
+
+{% else %}
+<div class="alert alert-info" role="alert">
+<p>Нет Новостей</p>
+</div>
+{%endif%}
 
 
 {% endblock %}
