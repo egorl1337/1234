@@ -4,19 +4,16 @@ from django.views.generic import DetailView
 from django.views.generic import DeleteView
 from django.views.generic.edit import UpdateView
 from requests import request
-from .models import Comment, Comments
+from .models import Comment, Comments, Items
 from .forms import CommentForm, CommentsForm
-from .models import Items
+
 
 # Create your views here.
 
 
-def New_detail_view(request, Items):
-    class New_detail_view(DetailView):
-        model = Items
-        template_name = 'shop/detail_view.html'
-        context_object_name = 'Items'
-    items = get_object_or_404(Items, slug=items)
+def New_detail_view(request, pk):
+    # items = get_object_or_404(Items)
+    items = get_object_or_404(Items)
     comments = Items.Comments.filter(active=True)
     comments_form = CommentsForm(data=request.POST)
     

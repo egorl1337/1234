@@ -1,13 +1,13 @@
 {% extends 'e/layout.html'%}
-{% block title%}Интернет-магазин: {{Items.title}}{% endblock %}
+{% block title%}Интернет-магазин: {{items.title}}{% endblock %}
 {% block body%}
 {% load static %}
 <div class = 'detail_view'>
 <div class = 'alert alert-info'>
-    <img src = '{{Items.image.url}}' alt="1213" class = 'item_image' style="width: 50%;">
-    <h2 class="title">{{Items.short_description}}</h2>
-    <p class = 'description'>{{Items.description}}</p>
-    <p class = 'price'>{{Items.price}}</p>
+    <img src = '{{items.image.url}}' alt="1213" class = 'item_image' style="width: 50%;">
+    <h2 class="title">{{items.short_description}}</h2>
+    <p class = 'description'>{{items.description}}</p>
+    <p class = 'price'>{{items.price}}</p>
 </div>
 </div>
 
